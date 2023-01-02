@@ -28,7 +28,7 @@ import { ReactComponent as MoreIcon } from "../../assets/icons/more.svg";
 import { ReactComponent as BlacklistUserIcon } from "../../assets/icons/delete-friend.svg";
 import { ReactComponent as ViewDetailsIcon } from "../../assets/icons/view.svg";
 import { ReactComponent as ActivateUserIcon } from "../../assets/icons/activate-user.svg";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 import { UsersData } from "../../dummy-data";
 import { convertToOptions } from "../../utils/form";
@@ -141,7 +141,7 @@ export default function Users() {
         db.close();
       };
     };
-  }, [perPage]);
+  }, [perPage, indexedDb, setTotalCount, setUsersList]);
 
   const gotoUserDetails = (user: any) => {
     navigate(`/users/${user}`, { replace: true });
@@ -316,7 +316,9 @@ export default function Users() {
                 }}
                 label='Organizations'
                 name='orgName'
-                options={convertToOptions(allOrgName)}
+                options={convertToOptions({
+                  data: allOrgName,
+                })}
               />
 
               <Input
@@ -361,12 +363,14 @@ export default function Users() {
                 }}
                 label='Status'
                 name='status'
-                options={convertToOptions([
-                  "inactive",
-                  "blacklisted",
-                  "active",
-                  "pending",
-                ])}
+                options={convertToOptions({
+                  data: [
+                    "inactive",
+                    "blacklisted",
+                    "active",
+                    "pending",
+                  ],
+                })}
               />
 
               <div className='button-row'>
