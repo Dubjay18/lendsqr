@@ -12,49 +12,51 @@ import { ReactComponent as DropdownIcon } from "../../assets/icons/dropdown.svg"
 
 export default function Topbar() {
   const toggleSidebar = () => {
-    document.querySelector(".sidebar").classList.toggle("open");
+    document
+      .querySelector(".sidebar")
+      .classList.toggle("open");
   };
 
   return (
-    <div className="topbar">
-      <div className="logo-container">
-        <button className="icon" onClick={toggleSidebar}>
+    <div className='topbar'>
+      <div className='logo-container'>
+        <button className='icon' onClick={toggleSidebar}>
           <Menu />
         </button>
 
-        <div className="logo">
+        <div className='logo'>
           <Logo />
         </div>
       </div>
 
-      <div className="topbar-content">
-        <div className="search">
-            <Input
-              type="text"
-              name="search"
-              placeholder="Search for anything"
-            />
+      <div className='topbar-content'>
+        <div className='search'>
+          <Input
+            type='text'
+            name='search'
+            placeholder='Search for anything'
+          />
 
-            <button type="submit" className="icon">
-              <SearchIcon />
-            </button>
+          <button type='submit' className='icon'>
+            <SearchIcon />
+          </button>
         </div>
 
-        <div className="shortcuts">
-          <div className="docs">
+        <div className='shortcuts'>
+          <div className='docs'>
             <u>Docs</u>
           </div>
 
-          <div className="icon notification">
+          <div className='icon notification'>
             <NotificationIcon />
           </div>
 
-          <div className="user-data">
-            <img src={User} alt="" />
+          <div className='user-data'>
+            <img src={User} alt='' />
 
-            <div className="name">Adedeji</div>
+            <div className='name'>Jay</div>
 
-            <div className="icon">
+            <div className='icon'>
               <DropdownIcon />
             </div>
           </div>
